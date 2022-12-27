@@ -1,0 +1,22 @@
+class test:
+    @staticmethod
+    def update_property(current_properties, key, value):
+        print(f"1) {current_properties} {id(current_properties)}")
+        new_properties = test.set_property(current_properties, key, value)
+        print(f"4) {current_properties} {id(current_properties)}")
+        print(f"5) {new_properties} {id(new_properties)}")
+        return new_properties
+
+    @staticmethod
+    def set_property(properties: str, key: str, value) -> str:
+        print(f"2) {properties} {id(properties)}")
+        properties[key] = value
+        print(f"3) {properties} {id(properties)}")
+        return properties
+
+
+properties = {"Name": "Bob"}
+
+
+updated_properties = test.update_property(properties, "Age", 26)
+print(f"6) {updated_properties} {id(updated_properties)}")
